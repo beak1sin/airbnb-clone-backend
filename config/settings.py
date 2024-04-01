@@ -193,13 +193,19 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000"]
+if DEBUG:
+    CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000"]
+
+    # 다른 서버에서 장고로 post 요청을 허용해주는 신뢰 사이트 등록
+    CSRF_TRUSTED_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000"]
+else:
+    CORS_ALLOWED_ORIGINS = ["https://airbnb-clone-frontend-pkh1.onrender.com"]
+
+    # 다른 서버에서 장고로 post 요청을 허용해주는 신뢰 사이트 등록
+    CSRF_TRUSTED_ORIGINS = ["https://airbnb-clone-frontend-pkh1.onrender.com"]
 
 # 리액트 3000포트 서버에서 쿠키 요청을 받아도 된다는 뜻임.
 CORS_ALLOW_CREDENTIALS = True
-
-# 다른 서버에서 장고로 post 요청을 허용해주는 신뢰 사이트 등록
-CSRF_TRUSTED_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000"]
 
 GITHUB_SECRET = env("GITHUB_SECRET")
 
