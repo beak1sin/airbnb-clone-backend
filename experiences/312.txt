@@ -1,0 +1,1 @@
+{"name":"스노쿨링", "price": 300, "address": "중랑구 상봉동 165", "start": "00:01:15", "end": "02:01:15", "description":"재밌는 스노쿨링입니다!", "category": 5, "perks": [4,3]}
