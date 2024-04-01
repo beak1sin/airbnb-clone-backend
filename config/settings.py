@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import environ
 import dj_database_url
+import sentry_sdk
 
 env = environ.Env()
 
@@ -205,3 +206,15 @@ NAVER_SECRET = env("NAVER_SECRET")
 CLOUDFLARE_ID = env("CF_ID")
 
 CLOUDFLARE_TOKEN = env("CF_TOKEN")
+
+if not DEBUG:
+    sentry_sdk.init(
+        dsn="https://58b6f080345b92ddc4ba33230b038029@o4507010431975424.ingest.us.sentry.io/4507010442526720",
+        # Set traces_sample_rate to 1.0 to capture 100%
+        # of transactions for performance monitoring.
+        traces_sample_rate=1.0,
+        # Set profiles_sample_rate to 1.0 to profile 100%
+        # of sampled transactions.
+        # We recommend adjusting this value in production.
+        profiles_sample_rate=1.0,
+    )
