@@ -216,6 +216,8 @@ CLOUDFLARE_ID = env("CF_ID")
 CLOUDFLARE_TOKEN = env("CF_TOKEN")
 
 if not DEBUG:
+    SESSION_COOKIE_DOMAIN = ".airbnbclonejb.shop"
+    CSRF_COOKIE_DOMAIN = ".airbnbclonejb.shop"
     sentry_sdk.init(
         dsn="https://58b6f080345b92ddc4ba33230b038029@o4507010431975424.ingest.us.sentry.io/4507010442526720",
         # Set traces_sample_rate to 1.0 to capture 100%
