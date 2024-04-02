@@ -35,6 +35,7 @@ DEBUG = "RENDER" not in os.environ
 
 ALLOWED_HOSTS = [
     "localhost",
+    "backend.airbnbclonejb.shop",
 ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
